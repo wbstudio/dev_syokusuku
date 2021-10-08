@@ -61,6 +61,43 @@ class _DashboardState extends State<Dashboard> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(title: Text('Dashboard'),),
+      drawer: Drawer(
+        child: ListView(
+          children: <Widget>[
+            ListTile(
+              title: Text("Myページ"),
+              trailing: Icon(Icons.arrow_forward),
+              onTap: () => {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => Dashboard(),)
+                )
+              },
+            ),
+            ListTile(
+              title: Text("履歴"),
+              trailing: Icon(Icons.arrow_forward),
+            ),
+            ListTile(
+              title: Text("プロフィール"),
+              trailing: Icon(Icons.arrow_forward),
+            ),
+            ListTile(
+              title: Text("お問い合わせ"),
+              trailing: Icon(Icons.arrow_forward),
+            ),
+            ListTile(
+              title: Text("規約"),
+              trailing: Icon(Icons.arrow_forward),
+            ),
+            ListTile(
+              title: Text("使い方"),
+              trailing: Icon(Icons.arrow_forward),
+            ),
+          ],
+        ),
+      ),
+
 //      body: Column(
 //        mainAxisAlignment: MainAxisAlignment.center,
 //        crossAxisAlignment: CrossAxisAlignment.center,
@@ -71,7 +108,8 @@ class _DashboardState extends State<Dashboard> {
 //            color: Colors.purple,
 //            onPressed: (){
 //              logOut(context);
-//            },child: Text("Log Out",style: TextStyle(color: Colors.white),),),
+//            },
+//            child: Text("Log Out",style: TextStyle(color: Colors.white),),),
 //        ],
 //      ),
       body: screens[_currentIndex],
