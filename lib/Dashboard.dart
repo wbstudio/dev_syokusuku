@@ -3,6 +3,7 @@ import 'package:fluttertoast/fluttertoast.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:syokusuku_app/main.dart';
 
+import 'DashboardRoute.dart';
 import 'main.dart';
 
 class Dashboard extends StatefulWidget {
@@ -45,14 +46,13 @@ class _DashboardState extends State<Dashboard> {
 
   int _currentIndex = 0;
   final screens =[
-    Center(child: Text("Home",style: TextStyle(fontSize: 45),),),
-//    HomePage(),  :別ダートファイル作成
+    HomePage(),
     Center(child: Text("Map Page",style: TextStyle(fontSize: 45),),),
 //    MapPage(),  :別ダートファイル作成
     Center(child: Text("Search Page",style: TextStyle(fontSize: 45),),),
 //    SearchPage(),  :別ダートファイル作成
-    Center(child: Text("QRcodePage",style: TextStyle(fontSize: 45),),),
-//    QRcodePage(),  :別ダートファイル作成
+//    Center(child: Text("QRcodePage",style: TextStyle(fontSize: 45),),),
+    QrCodePage(),  //:別ダートファイル作成
     Center(child: Text("StripePage",style: TextStyle(fontSize: 45),),),
 //    StripePage(),  :別ダートファイル作成
   ];
@@ -65,53 +65,66 @@ class _DashboardState extends State<Dashboard> {
         child: ListView(
           children: <Widget>[
             ListTile(
-              title: Text("Myページ"),
+              title: Text("履歴"),
               trailing: Icon(Icons.arrow_forward),
               onTap: () => {
                 Navigator.push(
-                  context,
-                  MaterialPageRoute(builder: (context) => Dashboard(),)
+                    context,
+                    MaterialPageRoute(builder: (context) => Dashboard(),)
                 )
               },
             ),
             ListTile(
-              title: Text("履歴"),
-              trailing: Icon(Icons.arrow_forward),
-            ),
-            ListTile(
               title: Text("プロフィール"),
               trailing: Icon(Icons.arrow_forward),
+              onTap: () => {
+                Navigator.push(
+                    context,
+                    MaterialPageRoute(builder: (context) => Dashboard(),)
+                )
+              },
             ),
             ListTile(
               title: Text("お問い合わせ"),
               trailing: Icon(Icons.arrow_forward),
+              onTap: () => {
+                Navigator.push(
+                    context,
+                    MaterialPageRoute(builder: (context) => Dashboard(),)
+                )
+              },
             ),
             ListTile(
               title: Text("規約"),
               trailing: Icon(Icons.arrow_forward),
+              onTap: () => {
+                Navigator.push(
+                    context,
+                    MaterialPageRoute(builder: (context) => Dashboard(),)
+                )
+              },
             ),
             ListTile(
               title: Text("使い方"),
               trailing: Icon(Icons.arrow_forward),
+              onTap: () => {
+                Navigator.push(
+                    context,
+                    MaterialPageRoute(builder: (context) => Dashboard(),)
+                )
+              },
+            ),
+            ListTile(
+              title: Text("ログアウト"),
+              trailing: Icon(Icons.arrow_forward),
+              onTap: (){
+                logOut(context);
+              },
             ),
           ],
         ),
       ),
 
-//      body: Column(
-//        mainAxisAlignment: MainAxisAlignment.center,
-//        crossAxisAlignment: CrossAxisAlignment.center,
-//        children: <Widget>[
-//          Center(child: email == '' ? Text('') : Text(email)),
-//          SizedBox(height: 20,),
-//          MaterialButton(
-//            color: Colors.purple,
-//            onPressed: (){
-//              logOut(context);
-//            },
-//            child: Text("Log Out",style: TextStyle(color: Colors.white),),),
-//        ],
-//      ),
       body: screens[_currentIndex],
       bottomNavigationBar: BottomNavigationBar(
         items: <BottomNavigationBarItem>[
@@ -144,6 +157,5 @@ class _DashboardState extends State<Dashboard> {
     );
   }
   void _onItemTapped(int index) => setState(() => _currentIndex = index );
-  
 }
 

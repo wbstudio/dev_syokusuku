@@ -13,8 +13,6 @@ void main() async{
   runApp(MaterialApp(home: email == null ? Login() : Dashboard(),));
 }
 
-
-
 class Login extends StatefulWidget {
   @override
   _LoginState createState() => _LoginState();
@@ -35,8 +33,6 @@ class _LoginState extends State<Login> {
 
     // Store all data with Param Name.
     var data = {'email': email, 'password' : password};
-
-
     var response = await http.post(uri, body: json.encode(data));
     var message = jsonDecode(response.body);
 

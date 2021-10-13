@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'dart:convert';
 import 'package:http/http.dart' as http;
 
+import 'main.dart';
+
 
 
 class RegisterUser extends StatelessWidget {
@@ -127,6 +129,14 @@ class RegisterUserLogicState extends State {
 
                   RaisedButton(
                     onPressed: userRegistration,
+                    color: Colors.green,
+                    textColor: Colors.white,
+                    padding: EdgeInsets.fromLTRB(10, 10, 10, 10),
+                    child: Text('全部書いたら押してください。'),
+                  ),
+
+                  RaisedButton(
+                    onPressed:() => Navigator.of(context).pop(),
                     color: Colors.green,
                     textColor: Colors.white,
                     padding: EdgeInsets.fromLTRB(10, 10, 10, 10),
