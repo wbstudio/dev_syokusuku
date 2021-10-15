@@ -3,14 +3,14 @@ import 'package:fluttertoast/fluttertoast.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'dart:convert';
 import 'package:http/http.dart' as http;
-import 'Dashboard.dart';
+import 'DashBoard/HomePage.dart';
 import 'RegistUser.dart';
 
 void main() async{
   WidgetsFlutterBinding.ensureInitialized();
   SharedPreferences preferences = await SharedPreferences.getInstance();
   var email = preferences.getString('email');
-  runApp(MaterialApp(home: email == null ? Login() : Dashboard(),));
+  runApp(MaterialApp(home: email == null ? Login() : HomePage(),));
 }
 
 class Login extends StatefulWidget {
@@ -40,7 +40,7 @@ class _LoginState extends State<Login> {
       SharedPreferences preferences = await SharedPreferences.getInstance();
       preferences.setString('email', email);
 
-      Navigator.push(context, MaterialPageRoute(builder: (context)=>Dashboard(),),);
+      Navigator.push(context, MaterialPageRoute(builder: (context)=>HomePage(),),);
       Fluttertoast.showToast(
           msg: "Login Successful",
           toastLength: Toast.LENGTH_SHORT,
