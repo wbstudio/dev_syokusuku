@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_config/flutter_config.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'dart:convert';
@@ -9,6 +10,7 @@ import 'RegistUser.dart';
 void main() async{
   WidgetsFlutterBinding.ensureInitialized();
   SharedPreferences preferences = await SharedPreferences.getInstance();
+  await FlutterConfig.loadEnvVariables();
   var email = preferences.getString('email');
   runApp(MaterialApp(home: email == null ? Login() : HomePage(),));
 }

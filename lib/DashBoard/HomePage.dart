@@ -7,6 +7,7 @@ import 'MapPage.dart';
 import 'SearchPage.dart';
 import 'TicketPage.dart';
 import 'include/Drawer.dart';
+import '../Config/Config.dart';
 
 class HomePage extends StatefulWidget {
   @override
@@ -58,7 +59,7 @@ class _HomePageState extends State<HomePage> {
     return Scaffold(
       appBar: AppBar(
         title: Text('原チケHOME'),
-          backgroundColor: Colors.red,
+          backgroundColor: Settings.MAIN_COLOR,
       ),
       drawer:DrawerWidget(),
 

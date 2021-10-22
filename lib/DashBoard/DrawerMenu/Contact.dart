@@ -3,7 +3,6 @@ import 'package:shared_preferences/shared_preferences.dart';
 import 'dart:convert';
 import 'package:http/http.dart' as http;
 import 'package:syokusuku_app/DashBoard/include/Drawer.dart';
-
 import '../BillPage.dart';
 import '../HomePage.dart';
 import '../MapPage.dart';
@@ -47,8 +46,6 @@ class _ContactState extends State<Contact> {
   }
 
 
-  int _currentIndex = 1;
-
   @override
   void initState() {
     super.initState();
@@ -66,6 +63,11 @@ class _ContactState extends State<Contact> {
         children: [
           Center(child: email == '' ? Text('a') : Text(email)),
           Text("$id $nameさん $ticket $email"),
+          Form(
+            child: TextFormField(
+              decoration: InputDecoration(labelText: 'Title'),
+            ),
+          ),
         ],
       ),
       bottomNavigationBar: BottomNavigationBar(
@@ -91,7 +93,6 @@ class _ContactState extends State<Contact> {
               title: Text('Bill')
           ),
         ],
-        currentIndex: _currentIndex,
         backgroundColor: Colors.red,
         selectedItemColor: Colors.white,
         unselectedItemColor: Colors.white,
