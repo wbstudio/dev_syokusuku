@@ -32,7 +32,7 @@ class _HomePageState extends State<HomePage> {
 
   Future getUserData()async{
     SharedPreferences preferences = await SharedPreferences.getInstance();
-    Uri uri = Uri.parse('http://10.0.2.2/php_syokusuku/dashboard_home.php');
+    Uri uri = Uri.parse('${Settings.API_URL}dashboard_home.php');
     setState(() {
       email = preferences.getString('email')!;
     });
