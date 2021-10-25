@@ -7,6 +7,8 @@ import 'MapPage.dart';
 import 'SearchPage.dart';
 import 'TicketPage.dart';
 import 'include/Drawer.dart';
+import '../StripePage.dart';
+
 
 class BillPage extends StatefulWidget {
   @override
@@ -62,12 +64,7 @@ class _BillPageState extends State<BillPage> {
       ),
       drawer:DrawerWidget(),
 
-      body: Column(
-        children: [
-          Center(child: email == '' ? Text('a') : Text(email)),
-          Text("$id $nameさん $ticket $email"),
-        ],
-      ),
+      body: StripePage(),
       bottomNavigationBar: BottomNavigationBar(
         items: <BottomNavigationBarItem>[
           BottomNavigationBarItem(
